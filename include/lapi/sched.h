@@ -45,7 +45,7 @@ static inline int sched_getattr(pid_t pid, struct sched_attr *attr,
 	return syscall(__NR_sched_getattr, pid, attr, size, flags);
 }
 
-#ifndef HAVE_CLONE3
+#ifdef HAVE_CLONE3
 struct clone_args {
 	uint64_t __attribute__((aligned(8))) flags;
 	uint64_t __attribute__((aligned(8))) pidfd;
